@@ -25,7 +25,7 @@ public class UserController {
 	public String join(@ModelAttribute UserVo userVo) {
 		System.out.println("Controller.join()");
 		userservice.join(userVo);
-		return "/WEB-INF/views/user/joinOk.jsp";
+		return "user/joinOk";
 		
 	}
 
@@ -33,7 +33,7 @@ public class UserController {
 	@RequestMapping(value = "/user/joinForm", method = { RequestMethod.GET, RequestMethod.POST })
 	public String joinForm() {
 		System.out.println("UserController.joinForm()");
-		return "/WEB-INF/views/user/joinForm.jsp";
+		return "user/joinForm";
 	}
 
 	/* 회원가입
@@ -53,7 +53,7 @@ public class UserController {
 	@RequestMapping(value = "/user/loginForm", method = { RequestMethod.GET, RequestMethod.POST })
 	public String loginForm(@ModelAttribute UserVo userVo) {
 		System.out.println("UserController.loginForm()");
-		return "/WEB-INF/views/user/loginForm.jsp";
+		return "user/loginForm";
 	}
 
 	// 로그인 되기
@@ -83,7 +83,7 @@ public class UserController {
 		System.out.println("UserController.logout()");
 		session.removeAttribute("authUser"); //세션날라감
 		session.invalidate(); 
-		return "/WEB-INF/views/main/main.jsp";
+		return "main/main";
 	}
 	
 	// 회원 정보가져온 수정폼
@@ -100,7 +100,7 @@ public class UserController {
 		System.out.println(userVo);
 		model.addAttribute("modifyUser",userVo);
 		
-		return "/WEB-INF/views/user/modifyForm.jsp";
+		return "user/modifyForm";
 	}
 	
 	//회원정보 수정
