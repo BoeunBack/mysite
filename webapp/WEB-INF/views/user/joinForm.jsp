@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${pageContext.request.contextPath}/assets/css/mysite.css" rel="stylesheet" 	type="text/css">
-<link href="${pageContext.request.contextPath}/assets/css/user.css" rel="stylesheet"	type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/mysite.css"
+	rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/user.css"
+	rel="stylesheet" type="text/css">
 
 </head>
 
@@ -16,18 +18,9 @@
 
 		<c:import url="/WEB-INF/views/Include/header.jsp"></c:import>
 		<!-- //header -->
-
-		<div id="nav">
-			<ul>
-				<li><a href="">방명록</a></li>
-				<li><a href="">갤러리</a></li>
-				<li><a href="">게시판</a></li>
-				<li><a href="">입사지원서</a></li>
-			</ul>
-			<div class="clear"></div>
-		</div>
+		<c:import url="/WEB-INF/views/Include/nav.jsp"></c:import>
 		<!-- //nav -->
-
+		
 		<div id="aside">
 			<h2>회원</h2>
 			<ul>
@@ -55,7 +48,8 @@
 
 			<div id="user">
 				<div id="joinForm">
-					<form action="${pageContext.request.contextPath}/user/join" method="get">
+					<form action="${pageContext.request.contextPath}/user/join"
+						method="get">
 
 						<!-- 아이디 -->
 						<div class="form-group">

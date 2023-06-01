@@ -16,15 +16,7 @@
 <c:import url="/WEB-INF/views/Include/header.jsp"></c:import>
 		<!-- //header -->
 
-		<div id="nav">
-			<ul>
-				<li><a href="">방명록</a></li>
-				<li><a href="">갤러리</a></li>
-				<li><a href="">게시판</a></li>
-				<li><a href="">입사지원서</a></li>
-			</ul>
-			<div class="clear"></div>
-		</div>
+		<c:import url="/WEB-INF/views/Include/nav.jsp"></c:import>
 		<!-- //nav -->
 
 		<div id="aside">
@@ -62,12 +54,12 @@
 						</colgroup>
 						<tr>
 							<td>비밀번호</td>
-							<td><input type="password" name="pass"></td>
+							<td><input type="password" name="password"></td>
 							<td class="text-left"><button type="submit">삭제</button></td>
 							<td><a href="${pageContext.request.contextPath}/guestbook/addList">[메인으로 돌아가기]</a></td>
 						</tr>
 					</table>
-					<input type='hidden' name="" value="">
+					<input type='hidden' name="no" value="${param.no}">
 					<input type='hidden' name="" value="">
 				</form>
 				

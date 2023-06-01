@@ -21,17 +21,14 @@ public class GuestbookService {
 	
 	public void addGuest(GuestbookVo guestbookVo) {
 		System.out.println("GuestService.addGuest()");
-		guestbookDao.addGuest(guestbookVo);
-		
-		
+		guestbookDao.addGuest(guestbookVo);	
 	}
-	
-	
-	
-	
+		
 	public void deleteGuest(GuestbookVo guestbookVo) {
 		System.out.println("GuestbookService.deleteGuest()");
+		System.out.println(guestbookVo);
 		guestbookDao.deleteGuest(guestbookVo);
+		
 	}
 
 

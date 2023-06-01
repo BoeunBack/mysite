@@ -22,7 +22,7 @@
 		select no,
 			   name,	
 			   content,
-			   reg_date regDATE
+			   regdate regDATE
 		from guestbook
 		order by no desc	
 	]]>
@@ -43,7 +43,7 @@
 		 name,
 		 password,
 		 content,
-		 reg_date) 
+		 regdate) 
 		 
 		 values 
 		(seq_guestbook_no.nextval, 

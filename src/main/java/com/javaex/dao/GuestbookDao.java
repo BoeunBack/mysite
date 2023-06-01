@@ -29,8 +29,10 @@ public class GuestbookDao {
 	
 	public int deleteGuest(GuestbookVo guestbookVo) {
 		System.out.println("GuestbookDao.deleteGuest()");
+		System.out.println(guestbookVo);
 		int count = sqlSession.delete("guestbook.delete", guestbookVo);
-		System.out.println(count);
+	
+		
 		return count;
 	}
 /*public void insertGuest(GuestbookVo guestbookVo) {

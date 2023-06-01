@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${pageContext.request.contextPath}/assets/css/mysite.css" rel="stylesheet"	type="text/css">
-<link href="${pageContext.request.contextPath}/assets/css/user.css" rel="stylesheet"	type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/mysite.css"
+	rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/user.css"
+	rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -16,15 +18,7 @@
 		<c:import url="/WEB-INF/views/Include/header.jsp"></c:import>
 		<!-- //header -->
 
-		<div id="nav">
-			<ul>
-				<li><a href="">방명록</a></li>
-				<li><a href="">갤러리</a></li>
-				<li><a href="">게시판</a></li>
-				<li><a href="">입사지원서</a></li>
-			</ul>
-			<div class="clear"></div>
-		</div>
+		<c:import url="/WEB-INF/views/Include/nav.jsp"></c:import>
 		<!-- //nav -->
 
 		<div id="aside">
@@ -54,7 +48,8 @@
 
 			<div id="user">
 				<div id="loginForm">
-					<form action="${pageContext.request.contextPath}/user/login" method="get">
+					<form action="${pageContext.request.contextPath}/user/login"
+						method="get">
 
 						<!-- 아이디 -->
 						<div class="form-group">
@@ -69,10 +64,10 @@
 								type="text" id="input-pass" name="password" value=""
 								placeholder="비밀번호를 입력하세요">
 						</div>
-						
-						
+
+
 						<c:if test="${param.result=='fail'}">
-						<p>로그인에 실패했습니다. 다시 입력해줘세요.</p>
+							<p>로그인에 실패했습니다. 다시 입력해줘세요.</p>
 						</c:if>
 
 

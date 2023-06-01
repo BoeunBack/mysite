@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.GuestbookService;
 import com.javaex.vo.GuestbookVo;
@@ -22,13 +23,15 @@ public class GuestbookController {
 	//메서드 getset
 	//메서드 일반
 	
-	//add
+	//등록
 	@RequestMapping(value="/guestbook/add", method= {RequestMethod.GET, RequestMethod.POST})
-	public String add(@RequestAttribute GuestbookVo guestbookVo) {
+	public String add(@ModelAttribute GuestbookVo guestbookVo) {
 		System.out.println("GuestbookController.add()");
 		guestbookService.addGuest(guestbookVo);
+		System.out.println(guestbookVo);
 		
-		return "guestbook/addList";		
+	
+		return "redirect:/guestbook/addList";		
 	}	
 	
 	//리스트 
@@ -42,14 +45,6 @@ public class GuestbookController {
 		return "guestbook/addList";		
 	}
 	
-	//진짜 삭제
-	@RequestMapping(value="/guestbook/delete", method= {RequestMethod.GET, RequestMethod.POST})
-	public String delete(@ModelAttribute GuestbookVo guestbookVo) {
-		System.out.println("GuestbookController.delete()");
-		guestbookService.deleteGuest(guestbookVo);
-		
-		return "redirect:/addList";
-	}
 	//삭제폼(비밀번호 입력폼)
 	@RequestMapping(value="/guestbook/deleteForm", method= {RequestMethod.GET, RequestMethod.POST})
 	public String deleteForm() {
@@ -57,4 +52,15 @@ public class GuestbookController {
 		
 		return "guestbook/deleteForm";
 	}	
+	
+	//진짜 삭제
+	@RequestMapping(value="/guestbook/delete", method= {RequestMethod.GET, RequestMethod.POST})
+	public String delete(@ModelAttribute GuestbookVo guestbookVo) {
+		System.out.println("GuestbookController.delete()");
+		System.out.println(guestbookVo);
+		guestbookService.deleteGuest(guestbookVo);
+		
+		
+		return "redirect:/guestbook/addList";
+	}
 }

@@ -14,7 +14,9 @@ public class UserService {
 	
 //	회원가입
 	public void join(UserVo userVo) {
+		System.out.println(userVo);
 		userDao.insertUser(userVo);
+		
 	}
 	
 	

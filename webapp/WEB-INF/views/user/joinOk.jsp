@@ -6,35 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/mysite3/assets/css/mysite.css" rel="stylesheet" type="text/css">
-<link href="/mysite3/assets/css/user.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/mysite.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/user.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
 	<div id="wrap">
 
-		<div id="header">
-			<h1>
-				<a href="">MySite</a>
-			</h1>
-
-			<ul>
-				<li><a href="">로그인</a></li>
-				<li><a href="">회원가입</a></li>
-			</ul>
-		</div>
+		<c:import url="/WEB-INF/views/Include/header.jsp"></c:import>
 		<!-- //header -->
 
-		<div id="nav">
-			<ul>
-				<li><a href="">방명록</a></li>
-				<li><a href="">갤러리</a></li>
-				<li><a href="">게시판</a></li>
-				<li><a href="">입사지원서</a></li>
-			</ul>
-			<div class="clear"></div>
-		</div>
+		<c:import url="/WEB-INF/views/Include/nav.jsp"></c:import>
 		<!-- //nav -->
 
 		<div id="aside">
@@ -68,7 +51,7 @@
 					<p class="text-large bold">
 						회원가입을 축하합니다.<br>
 						<br>
-						<a href="" >[로그인하기]</a>
+						<a href="${pageContext.request.contextPath}/user/loginForm" >[로그인하기]</a>
 					</p>
 						
 				</div>
@@ -79,9 +62,7 @@
 		<!-- //content  -->
 		<div class="clear"></div>
 
-		<div id="footer">
-			Copyright ⓒ 2020 황일영. All right reserved
-		</div>
+	<c:import url="/WEB-INF/views/Include/footer.jsp"></c:import>
 		<!-- //footer -->
 
 	</div>

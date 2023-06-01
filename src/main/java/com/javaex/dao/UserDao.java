@@ -14,7 +14,9 @@ public class UserDao {
 	
 //	회원가입
 	public void insertUser(UserVo userVo) {
-		sqlsession.insert("user.insert", userVo);
+		System.out.println(userVo);
+		int count = sqlsession.insert("user.insert", userVo);
+		System.out.println(count);
 		
 	}
 	
