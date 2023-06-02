@@ -4,7 +4,7 @@
 
 	<div id="header">
 		<h1>
-			<a href="${pageContext.request.contextPath}/main">MySite ${sessionScope.authUser.name}</a>
+			<a href="${pageContext.request.contextPath}/main">MySite </a>
 		</h1>
 
 		<c:choose>

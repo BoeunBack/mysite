@@ -55,5 +55,13 @@
 	]]>
 	</update>
 
+	<!-- 회원정보 가져오기(idcheck) -->
+	<select id="selectUserById" parameterType="String" 	resultType="com.javaex.vo.UserVo">
+      <![CDATA[
+         select no, id
+         from users
+         where id = #{id}
+      ]]>
+	</select>
 
 </mapper>

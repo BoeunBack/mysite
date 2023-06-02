@@ -10,7 +10,8 @@
 	rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/user.css"
 	rel="stylesheet" type="text/css">
-
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
 		<!-- //header -->
 		<c:import url="/WEB-INF/views/Include/nav.jsp"></c:import>
 		<!-- //nav -->
-		
+
 		<div id="aside">
 			<h2>회원</h2>
 			<ul>
@@ -56,7 +57,8 @@
 							<label class="form-text" for="input-uid">아이디</label> <input
 								type="text" id="input-uid" name="id" value=""
 								placeholder="아이디를 입력하세요">
-							<button type="button" id="">중복체크</button>
+							<button type="button" id="btnIdCheck">중복체크</button>
+							<p id="idcheckMsg">사용가능한 아이디입니다.</p>
 						</div>
 
 						<!-- 비밀번호 -->
@@ -110,5 +112,40 @@
 	<!-- //wrap -->
 
 </body>
+<script type="text/javascript">
+	//아이디 체크 버튼 클릭시
+	$("#btnIdCheck").on("click", function() {
+		console.log("버튼클릭");
+		//id 추출
+		var id = $("[name=id]").val();
+		console.log(id);
+			
+	
+		//통신
+		$.ajax({      
+	      
+			url : "${pageContext.request.contextPath }/user/idcheck",
+			type : "post",
+			/* contentType : "application/json", */
+			data : {id : id},
+
+			dataType : "json",
+			success : function(userVo) {
+				/*성공시 처리해야될 코드 작성*/
+				console.log(userVo);
+				if (userVo == null) {
+					$("idcheckMsg").html("는 사용가능합니다.");
+				} else {
+					//사용불가
+					$("#idcheckMsg").html("는 사용불가능합니다.");
+				}
+
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+	});
+</script>
 
 </html>

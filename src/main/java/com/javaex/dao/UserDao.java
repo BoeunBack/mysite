@@ -45,6 +45,15 @@ public class UserDao {
 		System.out.println(userVo);
 		
 	}
+	
+	//아이디 체크
+	public UserVo selectUser(String id) {
+		System.out.println("UserDao.selectUser()");
+		System.out.println(id);
+		UserVo userVo = sqlsession.selectOne("user.selectUserById", id);
+		System.out.println(userVo);
+		return userVo;
+	}
 
 }
 //public int insertUser(UserVo userVo) {

@@ -44,6 +44,16 @@ public class UserService {
 	
 	}
 	
+	//
+	public UserVo idcheck(String id ) {
+		System.out.println("UserService.getUser()");
+		System.out.println(id);
+		UserVo userVo = userDao.selectUser(id);
+		System.out.println(userVo);
+		
+		return userVo;
+	}
+	
 	
 
 }
